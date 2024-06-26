@@ -1,0 +1,39 @@
+<app-navigation></app-navigation>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Brand</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(parfum of parfumok; track $index) {
+                    <tr>
+                        <td>{{ parfum.id }}</td>
+                        <td>{{ parfum.name }}</td>
+                        <td>{{ parfum.brand }}</td>
+                        <td>{{ parfum.price }}</td>
+                        <td>{{ parfum.quantity }}</td>
+                        <td>
+                            <button class="btn btn-outline-primary"
+                                (click)="goToUserForm(parfum.id)">
+                                Modify
+                            </button>
+                            <button class="btn btn-outline-danger ms-2" 
+                                (click)="deleteUser(parfum)">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

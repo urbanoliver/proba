@@ -1,0 +1,59 @@
+<app-navigation></app-navigation>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form #editForm="ngForm" [formGroup]="parfumForm">
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input required pattern="[a-zA-Z0-9\s]+" name="name" type="text" class="form-control" id="name"
+                        formControlName="name">
+                    @if(parfumForm.controls['name'].invalid) {
+                    <div class="alert alert-danger mt-3">
+                        Name is required
+                    </div>
+                    }
+                </div>
+
+                <div class="mb-3">
+                    <label for="brand" class="form-label">Brand</label>
+                    <input required pattern="[a-zA-Z0-9\s]+" name="brand" type="text" class="form-control"
+                        id="brand" formControlName="Brand">
+                    @if(parfumForm.controls['brand'].invalid) {
+                    <div class="alert alert-danger mt-3">
+                        Brand is required
+                    </div>
+                    }
+                </div>
+
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input required pattern="[0-9]+$" name="price" type="text" class="form-control" id="price"
+                        formControlName="price">
+                    @if(parfumForm.controls['price'].invalid) {
+                    <div class="alert alert-danger mt-3">
+                        Price is required
+                    </div>
+                    }
+
+                </div>
+                
+                <div class="mb-3">
+                    <label for="quantity" class="form-label">Quantity</label>
+                    <input required pattern="[0-9]+$" name="quantity" type="text" class="form-control" id="quantity"
+                        formControlName="quantity">
+                    @if(parfumForm.controls['quantity'].invalid) {
+                    <div class="alert alert-danger mt-3">
+                        Quantity is required
+                    </div>
+                    }
+
+                </div>
+            </form>
+            <div class="text-end">
+                <button [disabled]="parfumForm.invalid" class="btn btn-outline-primary"
+                    (click)="saveParfum()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
